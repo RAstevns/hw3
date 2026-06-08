@@ -26,6 +26,7 @@ div:nth-child(4){
 }
 legend{
     display: block;
+    float: center;
     text-align: center;
     background-color: white;
     border: 4px outset grey;
