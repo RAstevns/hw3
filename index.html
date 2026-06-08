@@ -5,7 +5,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <style></style>
+
+    <!--   Stylesheet   -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!--   Javascript   -->
+    <script type="text/javascript" src="javascript/timestable.js"></script>
+
+    <!--   Title   -->
     <title>Times Table</title>
 </head>
 <body>
@@ -17,5 +24,28 @@
     <p>
         Please enter the following information to generate a times table:
     </p>
+    <form action="javascript/timestable.js" method="POST">
+        <div>
+            <label> Minimum column value </label>
+            <input type="number" name="mincol" placeholder="Enter number between -50 and 50">
+        </div>
+        <br>
+        <div>
+            <label> Maximum column value </label>
+            <input type="number" name="maxcol" placeholder="Enter number between -50 and 50">
+        </div>
+        <br>
+        <div>
+            <label> Minimum row value </label>
+            <input type="number" name="minrow" placeholder="Enter number between -50 and 50">
+        </div>
+        <br>
+        <div>
+            <label> Maximum row value </label>
+            <input type="number" name="maxrow" placeholder="Enter number between -50 and 50">
+        </div>
+        <br>
+        <input type="submit" id="submit" name="submit" value="Submit">
+    </form>
 </body>
 </html>
