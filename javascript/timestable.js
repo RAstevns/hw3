@@ -2,6 +2,7 @@
 function generateTable(event){
     console.log("Generating table");
 
+    
     // prevent page from refreshing
     event.preventDefault();
     
@@ -11,24 +12,39 @@ function generateTable(event){
     var minrow = Number(document.getElementsByName("minrow")[0].value);
     var maxrow = Number(document.getElementsByName("maxrow")[0].value);
 
+    var form = document.getElementById("form");
     var tablecontainer = document.getElementById("table-container");
     var table = document.createElement("table");
 
-    console.log(mincol > maxcol);
-    console.log(minrow > maxrow);
+    
+
+
+    // remove old error messages
+    if(form.contains(document.getElementsByTagName("p")[0])){
+        form.removeChild(document.getElementsByTagName("p")[0]);
+    }   
+
     // validate values
+    var invalid = false;
     if(mincol > maxcol || minrow > maxrow){
-        alert("Minimum values must be less than Maximum values.");
-        return;
+        var errormessage = document.createElement("p");
+        errormessage.innerHTML = "Minimum values must be less than Maximum values.";
+        form.appendChild(errormessage);
+        invalid = true;
     }
     if(mincol < -50 || maxcol < -50 || minrow < -50 || maxrow < -50){
-        alert("Values must be greater than -50.");
-        return;
+        var errormessage = document.createElement("p");
+        errormessage.innerHTML = "Values must be greater than -50.";
+        form.appendChild(errormessage);
+        invalid = true;
     }
     if(mincol > 50 || maxcol > 50 || minrow > 50 || maxrow > 50){
-        alert("Values must be less than 50.");
-        return;
+        var errormessage = document.createElement("p");
+        errormessage.innerHTML = " Values must be less than 50.";
+        form.appendChild(errormessage);
+        invalid = true;
     }
+    if(invalid) return;
 
     // header row
     var headerrow = document.createElement("tr");
@@ -65,7 +81,7 @@ function generateTable(event){
     if(tablecontainer.contains(document.getElementsByTagName("table")[0])){
         tablecontainer.removeChild(document.getElementsByTagName("table")[0]);
     }
-
+    
     // append new table
     tablecontainer.appendChild(table);
 }
