@@ -6,14 +6,16 @@ function generateTable(event){
     event.preventDefault();
     
     // get values from form
-    var mincol = document.getElementsByName("mincol")[0].value;
-    var maxcol = document.getElementsByName("maxcol")[0].value;
-    var minrow = document.getElementsByName("minrow")[0].value;
-    var maxrow = document.getElementsByName("maxrow")[0].value;
+    var mincol = Number(document.getElementsByName("mincol")[0].value);
+    var maxcol = Number(document.getElementsByName("maxcol")[0].value);
+    var minrow = Number(document.getElementsByName("minrow")[0].value);
+    var maxrow = Number(document.getElementsByName("maxrow")[0].value);
 
     var tablecontainer = document.getElementById("table-container");
     var table = document.createElement("table");
 
+    console.log(mincol > maxcol);
+    console.log(minrow > maxrow);
     // validate values
     if(mincol > maxcol || minrow > maxrow){
         alert("Minimum values must be less than Maximum values.");
