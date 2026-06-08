@@ -24,28 +24,28 @@
     <p>
         Please enter the following information to generate a times table:
     </p>
-    <form action="javascript/timestable.js" method="POST">
+    <form onsubmit="generateTable(event); return false;">
         <div>
             <label> Minimum column value </label>
-            <input type="number" name="mincol" placeholder="Enter number between -50 and 50">
+            <input type="number" name="mincol" placeholder="Enter integer between -100 and 100">
         </div>
         <br>
         <div>
             <label> Maximum column value </label>
-            <input type="number" name="maxcol" placeholder="Enter number between -50 and 50">
+            <input type="number" name="maxcol" placeholder="Enter integer between -100 and 100">
         </div>
         <br>
         <div>
             <label> Minimum row value </label>
-            <input type="number" name="minrow" placeholder="Enter number between -50 and 50">
+            <input type="number" name="minrow" placeholder="Enter integer between -100 and 100">
         </div>
         <br>
         <div>
             <label> Maximum row value </label>
-            <input type="number" name="maxrow" placeholder="Enter number between -50 and 50">
+            <input type="number" name="maxrow" placeholder="Enter integer between -100 and 100">
         </div>
         <br>
-        <input type="submit" id="submit" name="submit" value="Submit">
+        <button type="submit"> Submit </button>
     </form>
 </body>
 </html>
