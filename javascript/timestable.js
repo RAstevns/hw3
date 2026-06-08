@@ -10,19 +10,21 @@ function generateTable(event){
     var maxcol = document.getElementsByName("maxcol")[0].value;
     var minrow = document.getElementsByName("minrow")[0].value;
     var maxrow = document.getElementsByName("maxrow")[0].value;
+
+    var tablecontainer = document.getElementById("table-container");
     var table = document.createElement("table");
-    
+
     // validate values
     if(mincol > maxcol || minrow > maxrow){
         alert("Minimum values must be less than Maximum values.");
         return;
     }
-    if(mincol < -100 || maxcol < -100 || minrow < -100 || maxrow < -100){
-        alert("Values must be greater than -100.");
+    if(mincol < -50 || maxcol < -50 || minrow < -50 || maxrow < -50){
+        alert("Values must be greater than -50.");
         return;
     }
-    if(mincol > 100 || maxcol > 100 || minrow > 100 || maxrow > 100){
-        alert("Values must be less than 100.");
+    if(mincol > 50 || maxcol > 50 || minrow > 50 || maxrow > 50){
+        alert("Values must be less than 50.");
         return;
     }
 
@@ -44,8 +46,8 @@ function generateTable(event){
 
         // header column
         var headercolumn = document.createElement("td");
-        headercell.innerHTML = i;
-        row.appendChild(headercell);
+        headercolumn.innerHTML = i;
+        row.appendChild(headercolumn);
 
         for(var j = mincol; j <= maxcol; j++){
             var cell = document.createElement("td");
@@ -55,10 +57,13 @@ function generateTable(event){
         table.appendChild(row);
     }
 
+    
+    
     // remove old table
-    if(document.body.contains(document.getElementsByTagName("table")[0])){
-        document.body.removeChild(document.getElementsByTagName("table")[0]);
+    if(tablecontainer.contains(document.getElementsByTagName("table")[0])){
+        tablecontainer.removeChild(document.getElementsByTagName("table")[0]);
     }
+
     // append new table
-    document.body.appendChild(table);
+    tablecontainer.appendChild(table);
 }

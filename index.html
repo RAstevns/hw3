@@ -1,8 +1,16 @@
 <!DOCTYPE html>
-<!--
 
+<!--
+File: index.html
+HW3 - JavaScript
+Riley Stevens, UMass Lowell Computer Science, riley_stevens@student.uml.edu
+Copyright (c) 2026 by Riley. All rights reserved. May be freely copied or
+excerpted for educational purposes with credit to the author.
+updated by RS on Jun 8, 2026 at 2:17 PM
 -->
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
 
@@ -13,39 +21,41 @@
     <script type="text/javascript" src="javascript/timestable.js"></script>
 
     <!--   Title   -->
-    <title>Times Table</title>
+    <title>Multiplication Table</title>
 </head>
+
 <body>
     <header>
         <h1>
-            Times Tables
+            Multiplication Table Generator
         </h1>
     </header>
-    <p>
-        Please enter the following information to generate a times table:
-    </p>
-    <form onsubmit="generateTable(event); return false;">
-        <div>
-            <label> Minimum column value </label>
-            <input type="number" name="mincol" placeholder="Enter integer between -100 and 100">
-        </div>
-        <br>
-        <div>
-            <label> Maximum column value </label>
-            <input type="number" name="maxcol" placeholder="Enter integer between -100 and 100">
-        </div>
-        <br>
-        <div>
-            <label> Minimum row value </label>
-            <input type="number" name="minrow" placeholder="Enter integer between -100 and 100">
-        </div>
-        <br>
-        <div>
-            <label> Maximum row value </label>
-            <input type="number" name="maxrow" placeholder="Enter integer between -100 and 100">
-        </div>
-        <br>
-        <button type="submit"> Submit </button>
-    </form>
+    <fieldset id="form-fieldset">
+        <legend>Please enter values:</legend>
+        <form onsubmit="generateTable(event); return false;">
+            <div>
+                <label> Minimum column value </label>
+                <input type="number" name="mincol" placeholder="Enter integer between -50 and 50">
+            </div>
+            <div>
+                <label> Maximum column value </label>
+                <input type="number" name="maxcol" placeholder="Enter integer between -50 and 50">
+            </div>
+            <div>
+                <label> Minimum row value </label>
+                <input type="number" name="minrow" placeholder="Enter integer between -50 and 50">
+            </div>
+            <div>
+                <label> Maximum row value </label>
+                <input type="number" name="maxrow" placeholder="Enter integer between -50 and 50">
+            </div>
+            <button type="submit"> Generate </button>
+        </form>
+    </fieldset>
+    <fieldset id="table-fieldset">
+        <legend> Multiplication Table:</legend>
+        <div id="table-container"> </div>
+    </fieldset>
 </body>
+
 </html>
