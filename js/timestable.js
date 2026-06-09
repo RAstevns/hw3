@@ -47,14 +47,17 @@ function generateTable(event){
     if(invalid) return;
 
     // header row
-    var headerrow = document.createElement("tr");
-    var emptycell = document.createElement("td");
-    headerrow.appendChild(emptycell);
+    var headerrow = document.createElement("thead");
+    var thread = document.createElement("tr");
+    var emptycell = document.createElement("th");
+    emptycell.id = 'ecell';
+    thread.appendChild(emptycell);
     for(var i = mincol; i <= maxcol; i++){
-        var cell = document.createElement("td");
+        var cell = document.createElement("th");
         cell.innerHTML = i;
-        headerrow.appendChild(cell);
+        thread.appendChild(cell);
     }
+    headerrow.appendChild(thread);
     table.appendChild(headerrow);
 
 
@@ -65,6 +68,7 @@ function generateTable(event){
         // header column
         var headercolumn = document.createElement("td");
         headercolumn.innerHTML = i;
+        headercolumn.className = "hcol";
         row.appendChild(headercolumn);
 
         for(var j = mincol; j <= maxcol; j++){

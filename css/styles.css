@@ -14,6 +14,8 @@ input{
     width: 250px;
     border: 2px solid grey;
 }
+
+/* This is to get just the first 3 inputs to have a bottom border*/
 div:nth-child(1),div:nth-child(2), div:nth-child(3){
     border-bottom: 1px solid black;
     margin:auto;
@@ -32,12 +34,14 @@ legend{
     border: 4px outset grey;
     width: 80%;
     margin: auto;
+    margin-bottom: 5px;
 }
 form{
     border: 4px solid grey;
     border-radius: 10px;
     padding: 20px;
     margin: auto;
+    margin-bottom: 5px;
     width:fit-content;
     min-width: 200px;
 }
@@ -47,7 +51,7 @@ fieldset{
     background-color: white;
     border: 4px solid grey;
     border-radius: 10px;
-    padding: 20px;
+    padding: 0px;
     margin: auto;
     margin-top: 10px;
     min-width: 350px;
@@ -63,18 +67,43 @@ fieldset{
     border: 0px;
 }
 table{
-    margin: auto;
-    border: 4px solid grey;
+    display: block;
+    margin: 5px;
+    padding: 5px;
+    border-collapse: separate;
+    border-spacing: 0;
     border-radius: 15px;
-    border-collapse: collapse;
 }
-tr, td{
+tr, th, td, thead{
     border: 2px solid black;
+    z-index: 0;
     margin: 0px;
     padding: 5px;
 }
+#ecell{
+    position: sticky;
+    background-color: rgb(100, 100, 100);
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+thead th:not(:first-child){
+    position: sticky;
+    background-color: rgb(100, 100, 100);
+    top: 0;
+    z-index: 1;
+}
+.hcol{
+    background-color: rgb(100, 100, 100);
+    position: sticky;
+    left: 0;
+    z-index: 1;
+}
 tr:nth-child(even) {
     background-color: grey;
+}
+tr:nth-child(odd) {
+    background-color: white;
 }
 tr:first-child, tr td:first-child{
     background-color: rgb(100, 100, 100);
